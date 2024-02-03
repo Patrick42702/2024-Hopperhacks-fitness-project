@@ -10,7 +10,6 @@ export function Register(){
         <br />
         <input type="text" id="lname" name="lname"/>
         <br />
-
       </form>
     </>
   );
