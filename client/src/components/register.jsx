@@ -3,7 +3,7 @@ export function Register(){
     <>
       <form>
         <div id="email">
-          <label id="email-header">Email:</label>
+          <label id="email-header" className="text-cyan-200">Email:</label>
           <br />
           <input type="email" id="email" name="email" />
           <br />
