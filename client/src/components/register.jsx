@@ -1,7 +1,9 @@
+import axios from 'axios';
+
 export function Register(){
   return (
     <>
-      <form>
+      <form target='_self' onSubmit={(e) => submitRegister(e)}>
         <div id="email">
           <label id="email-header">Email:</label>
           <br />
@@ -31,27 +33,51 @@ export function Register(){
         </div>
 
         <div id="dob">
-          <label for="dob-header">Date of Birth:</label>
+          <label htmlFor="dob-header">Date of Birth:</label>
           <br />
           <input type="date" id="dob-header" name="dob" />
           <br />
         </div>
 
         <div id="height">
-          <label for="height-header">Height:</label>
+          <label htmlFor="height-header">Height:</label>
           <br />
           <input type="number" id="height-header" name="height" />
           <br />
         </div>
 
         <div id="weight">
-          <label for="weight-header">Weight:</label>
+          <label htmlFor="weight-header">Weight:</label>
           <br />
           <input type="number" id="weight-header" name="weight" />
           <br />
         </div>
 
+        <input id="submit" type="submit" value="Register"/>
+
       </form>
     </>
   );
+}
+
+async function submitRegister(e) {
+  e.preventDefault();
+  const form = e.target;
+  //error if username is taken
+  //error if email is taken
+  if(!(form.password.value.trim() ===form.cpassword.value.trim())){
+    alert("Password does not match password verification.");
+    form.cpassword.focus();
+    return;
+  }
+  const user = {
+    email: form.email.value.trim(),
+    username: form.username.value.trim(),
+    password: form.password.value.trim(),
+    height: form.height.value.trim(),
+    weight: form.weight.value.trim()
+  }
+  console.log(user);
+  await axios.post('http://localhost:3000/user/', user);
+  //await axios.post('/user', user);
 }

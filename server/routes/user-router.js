@@ -22,6 +22,7 @@ userRouter.get("/:id", getUser, async (req, res) => {
 
 // Create user
 userRouter.post("/", async (req, res) => {
+    console.log("got it to back end!");
     try {
         const hash = await new Promise((resolve, reject) => {bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
                 if (err) reject(err)
@@ -29,6 +30,7 @@ userRouter.post("/", async (req, res) => {
             });
         });
         let user = new User({
+            email: req.body.email,
             username: req.body.username,
             password: hash,
             height: req.body.height,
@@ -36,6 +38,7 @@ userRouter.post("/", async (req, res) => {
         });
         const newUser = await user.save();
         res.status(201).json(newUser);
+        res.send(newUser);
     } catch (err) {
         res.status(400).json({ message: err.message })
     }
