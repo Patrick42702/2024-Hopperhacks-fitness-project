@@ -1,17 +1,17 @@
 const mongoose = require("mongoose");
 
 const liftSchema= new mongoose.Schema({
-    startTime: {type: Date},
+    startTime: {type: Date, default: Date.now()},
     endTime: {type: Date, default: Date.now()},
-    calories: {type: int},
-    sets: [
+    calories: {type: Number, default: 0},
+    sets: {type: [
         {
-            type: String, // subject to change to a type/model of its own
+            activity: String, // subject to change to a type/model of its own
             reps: Number,
             weight: Number
 
         }
-    ]
+    ], default: []}
 })
 
 const LiftWorkout = mongoose.model("LiftWorkout", liftSchema);
