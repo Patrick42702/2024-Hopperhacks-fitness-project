@@ -79,5 +79,6 @@ async function submitRegister(e) {
   }
   console.log(user);
   await axios.post('http://localhost:3000/user/', user);
+  console.log("all done!");
   //await axios.post('/user', user);
 }

@@ -9,6 +9,7 @@ const saltRounds = 10;
 userRouter.get("/", async (req, res) => {
     try {
         const users = await User.find();
+        console.log(users);
         res.json(users);
     } catch(err) {
         res.status(500).json({ message: err.message });
@@ -23,6 +24,7 @@ userRouter.get("/:id", getUser, async (req, res) => {
 // Create user
 userRouter.post("/", async (req, res) => {
     console.log("got it to back end!");
+    console.log(req.body);
     try {
         const hash = await new Promise((resolve, reject) => {bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
                 if (err) reject(err)
@@ -37,7 +39,8 @@ userRouter.post("/", async (req, res) => {
             weight: req.body.weight
         });
         const newUser = await user.save();
-        res.status(201).json(newUser);
+        //res.status(201).json(newUser);
+        console.log(newUser);
         res.send(newUser);
     } catch (err) {
         res.status(400).json({ message: err.message })
@@ -88,7 +91,6 @@ async function getUser(req, res, next) {
     } catch (err) {
         return res.status(500).json({ message: err.message });
     }
-    
     res.user = user;
     console.log(res.user);
     next();
