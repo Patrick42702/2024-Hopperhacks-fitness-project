@@ -1,9 +1,34 @@
 import axios from 'axios';
 
 export function Register(){
+
+  async function submitRegister(e) {
+    e.preventDefault();
+    const form = e.target;
+    //error if username is taken
+    //error if email is taken
+    console.log(e.target)
+    if(!(form.password.value.trim() ===form.cpassword.value.trim())){
+      alert("Password does not match password verification.");
+      form.cpassword.focus();
+      return;
+    }
+    const user = {
+      email: form.email.value.trim(),
+      username: form.username.value.trim(),
+      password: form.password.value.trim(),
+      height: form.height.value.trim(),
+      weight: form.weight.value.trim()
+    }
+    console.log(user);
+    await axios.post('http://localhost:3000/user/', user);
+    console.log("all done!");
+    //await axios.post('/user', user);
+  }
+
   return (
     <>
-      <form target='_self' onSubmit={(e) => submitRegister(e)} action="submit">
+      <form target='_self' onSubmit={(e) => submitRegister(e)} >
         <div className="title">Registration</div>
         <div className="registration-box bg-white">
           <div className="fields">
@@ -56,7 +81,7 @@ export function Register(){
             </div>
             
             <br />
-            <input type="button" className="mx-auto block bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded" value="Register"/>
+            <button type="submit" className="mx-auto block bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded">Register</button>
           </div>
         </div>
         <br />
@@ -65,25 +90,3 @@ export function Register(){
   );
 }
 
-async function submitRegister(e) {
-  e.preventDefault();
-  const form = e.target;
-  //error if username is taken
-  //error if email is taken
-  if(!(form.password.value.trim() ===form.cpassword.value.trim())){
-    alert("Password does not match password verification.");
-    form.cpassword.focus();
-    return;
-  }
-  const user = {
-    email: form.email.value.trim(),
-    username: form.username.value.trim(),
-    password: form.password.value.trim(),
-    height: form.height.value.trim(),
-    weight: form.weight.value.trim()
-  }
-  console.log(user);
-  await axios.post('http://localhost:3000/user/', user);
-  console.log("all done!");
-  //await axios.post('/user', user);
-}
