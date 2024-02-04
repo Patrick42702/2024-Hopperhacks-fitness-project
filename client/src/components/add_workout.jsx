@@ -8,6 +8,7 @@ export function Add_workout(){
     return(
         <div className="content">
             add workout
+            <br />
             <button onClick={() => dispatch(to_welcome())}>return to home</button>
         </div>
     )
