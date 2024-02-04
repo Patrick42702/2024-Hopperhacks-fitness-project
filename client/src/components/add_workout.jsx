@@ -4,7 +4,6 @@ import { to_welcome } from "../features/counter/contentSlice"
 export function Add_workout(){
     const dispatch = useDispatch();
 
-
     return(
         <form className="max-w-md mx-auto p-8 bg-white rounded">
             <div className="text-lg mb-4">Add Workouts!</div>
@@ -30,8 +29,8 @@ export function Add_workout(){
             </div>
             <br />
             <div className="content">
-                <button className="mr-20">Add Workout</button>
-                <button className="ml-12" onClick={() => dispatch(to_welcome())}>Return to Home</button>
+                <button className="mr-20 bg-blue-500 hover:bg-blue-700">Add Workout</button>
+                <button className="ml-12 bg-blue-500 hover:bg-blue-700" onClick={() => dispatch(to_welcome())}>Return to Home</button>
             </div>
         </form>
     )
