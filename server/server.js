@@ -5,6 +5,7 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const app = express();
 
 const cors = require('cors');
@@ -12,6 +13,7 @@ const cors = require('cors');
 app.use(cors());
 
 app.use(express.json());
+app.use(cors());
 
 console.log(process.env.DATABASE_URL);
 
@@ -25,8 +27,13 @@ app.use(express.json());
 
 // import routers
 const swimRouter = require("./routes/swim-router");
+<<<<<<< Updated upstream
 const runRouter = require("./routes/run-router");
 const liftRouter = require("./routes/lift-router");
+=======
+const runRouter = require("./routes/run-router")
+const liftRouter = require("./routes/lift-router")
+>>>>>>> Stashed changes
 const userRouter = require("./routes/user-router");
 
 // use routers
