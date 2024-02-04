@@ -1,7 +1,10 @@
 import { Outlet } from "react-router-dom";
 
-export function Layout(){
+export function Layout() {
   return (
-    <Outlet/>
-  )
+    <div className="text-black-100 font-semibold font-mono bg-gradient-to-b from-cyan-500 to-blue-900 min-h-screen">
+      <Outlet />
+    </div>
+      
+  );
 }

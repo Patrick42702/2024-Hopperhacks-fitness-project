@@ -8,17 +8,13 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 
-const cors = require('cors');
-//app.use(cors({origin: "http://localhost:3000", credentials:true}));
-app.use(cors());
-
 app.use(express.json());
 app.use(cors());
 
 console.log(process.env.DATABASE_URL);
 
 //mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true});
-mongoose.connect('mongodb://127.0.0.1/database', {useNewURLParser : true, useUnifiedTopology: true});
+mongoose.connect(`${process.env.DATABASE_URL}`);
 const db = mongoose.connection;
 db.on("error", err => console.error(err));
 db.once("open", () => console.log('Connected to Database'));
@@ -27,13 +23,8 @@ app.use(express.json());
 
 // import routers
 const swimRouter = require("./routes/swim-router");
-<<<<<<< Updated upstream
 const runRouter = require("./routes/run-router");
 const liftRouter = require("./routes/lift-router");
-=======
-const runRouter = require("./routes/run-router")
-const liftRouter = require("./routes/lift-router")
->>>>>>> Stashed changes
 const userRouter = require("./routes/user-router");
 
 // use routers

@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {}
+
+body {
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.registration-box {
+  width: 300px;
+  height: 425px;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.input-field {
+    border: 1px solid black;
+}
+
+.fields {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+}
+
+button {
+  background-color: #0d9488;
+  color: #ccfbf1;
+  border-radius: 5%;
+  padding: 8px;
+}
+
+.content {
+  flex-grow: 1;
+}
