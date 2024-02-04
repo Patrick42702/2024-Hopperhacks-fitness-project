@@ -2,37 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-}
+:root {}
 
 body {
   min-height: 100vh;
 }
 
-#root{
+#root {
   min-height: 100vh;
 }
 
 .registration-box {
-    background-color: rgb(4, 155, 115);
-    width: 250px;
-    height: 350px;
-    border-radius: 25px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+  background-color: rgb(4, 155, 115);
+  width: 250px;
+  height: 350px;
+  border-radius: 25px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .fields {
-    text-align: center;
+  text-align: center;
 }
 
 .title {
-    text-align: center;
+  text-align: center;
 }
-button{
+
+button {
   background-color: #0d9488;
   color: #ccfbf1;
   border-radius: 5%;
   padding: 8px;
+}
+
+.content {
+  flex-grow: 1;
 }

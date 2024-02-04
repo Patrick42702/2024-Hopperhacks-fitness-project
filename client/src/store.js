@@ -5,5 +5,6 @@ import contentReducer from './features/counter/contentSlice'
 export default configureStore({
   reducer: {
     counter: counterReducer,
+    content: contentReducer
   },
 })
