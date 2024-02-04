@@ -4,11 +4,11 @@ export function Register(){
   return (
     <>
       <form target='_self' onSubmit={(e) => submitRegister(e)} action="submit">
-        <div className="title">Registration</div>
         <div className="registration-box">
+          <h2 className="title">Registration</h2>
           <div className="fields">
             <div id="email">
-              <label id="email-header" className="text-cyan-200">Email:</label>
+              <label id="email-header">Email:</label>
               <br />
               <input type="email" id="email" name="email" />
               <br />
@@ -59,8 +59,7 @@ export function Register(){
           </div>
         </div>
 
-        <input id="submit" type="submit" value="Register"/>
-        <button type="submit">Register</button>
+        <div className="submit">Register</div>
         
       </form>
     </>
