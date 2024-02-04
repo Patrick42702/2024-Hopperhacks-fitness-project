@@ -35,12 +35,12 @@ export function Register(){
               <br />
             </div>
 
-        <div id="dob">
-          <label for="dob-header">Date of Birth:</label>
-          <br />
-          <input type="date" id="dob-header" name="dob" />
-          <br />
-        </div>
+            <div id="dob">
+              <label for="dob-header">Date of Birth:</label>
+              <br />
+              <input type="date" id="dob-header" name="dob" />
+              <br />
+            </div>
 
             <div id="height">
               <label htmlFor="height-header">Height:</label>
@@ -56,12 +56,6 @@ export function Register(){
               <br />
             </div>
 
-            <div id="submit">
-              <label for="submit-header">Register</label>
-              <br />
-              <button id="submit-header" name="submit" />
-              <br />
-            </div>
           </div>
         </div>
 
