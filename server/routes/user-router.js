@@ -61,6 +61,9 @@ userRouter.post("/login/", async (req, res) => {
             });
         });
         console.log(valid);
+        if (valid){
+            const token = jwt.sign(user, process.env.SECRET, {expiresIn: "1hr"}); //still need secret
+        }
     } catch (err) {
         res.status(400).json({ message: err.message })
     }
