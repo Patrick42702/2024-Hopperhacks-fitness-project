@@ -5,10 +5,10 @@ export function Register(){
     <>
       <form target='_self' onSubmit={(e) => submitRegister(e)} action="submit">
         <div className="title">Registration</div>
-        <div className="registration-box">
+        <div className="registration-box bg-blue-500">
           <div className="fields">
             <div id="email">
-              <label id="email-header" className="text-cyan-200">Email:</label>
+              <label id="email-header">Email:</label>
               <br />
               <input type="email" id="email" name="email" />
               <br />
@@ -17,7 +17,7 @@ export function Register(){
             <div id="username">
               <label id="username-header">Username:</label>
               <br />
-              <input type="text" id="username" name="username" />
+              <input type="text" className="username" name="username" />
               <br />
             </div>
 
@@ -29,18 +29,18 @@ export function Register(){
             </div>
 
             <div id="cpassword">
-              <label id="cpassword-header">Confirm Passsword:</label>
+              <label id="cpassword-header">Confirm Password:</label>
               <br />
               <input type="password" id="cpassword" name="cpassword" />
               <br />
             </div>
 
-        <div id="dob">
-          <label for="dob-header">Date of Birth:</label>
-          <br />
-          <input type="date" id="dob-header" name="dob" />
-          <br />
-        </div>
+            <div id="dob">
+              <label htmlFor="dob-header">Date of Birth:</label>
+              <br />
+              <input type="date" className="dob-header" name="dob" />
+              <br />
+            </div>
 
             <div id="height">
               <label htmlFor="height-header">Height:</label>
@@ -56,17 +56,11 @@ export function Register(){
               <br />
             </div>
 
-            <div id="submit">
-              <label for="submit-header">Register</label>
-              <br />
-              <button id="submit-header" name="submit" />
-              <br />
-            </div>
           </div>
         </div>
-
-        <input id="submit" type="submit" value="Register"/>
-
+        <br />
+        <input type="button" className="mx-auto block bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded" value="Register"/>
+        
       </form>
     </>
   );
