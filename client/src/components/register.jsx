@@ -6,61 +6,56 @@ export function Register(){
       <form target='_self' onSubmit={(e) => submitRegister(e)} action="submit">
         <div className="title">Registration</div>
         <div className="registration-box">
-          <div className="fields">
+          <div className="headers">
             <div id="email">
               <label id="email-header" className="text-cyan-200">Email:</label>
               <br />
-              <input type="email" id="email" name="email" />
-              <br />
             </div>
-
             <div id="username">
               <label id="username-header">Username:</label>
               <br />
-              <input type="text" id="username" name="username" />
-              <br />
             </div>
-
             <div id="password">
               <label id="password-header">Password:</label>
               <br />
-              <input type="password" id="password" name="password" />
-              <br />
             </div>
-
             <div id="cpassword">
               <label id="cpassword-header">Confirm Passsword:</label>
               <br />
-              <input type="password" id="cpassword" name="cpassword" />
-              <br />
             </div>
-
             <div id="dob">
               <label for="dob-header">Date of Birth:</label>
               <br />
-              <input type="date" id="dob-header" name="dob" />
-              <br />
             </div>
-
             <div id="height">
               <label htmlFor="height-header">Height:</label>
               <br />
-              <input type="number" id="height-header" name="height" />
-              <br />
             </div>
-
             <div id="weight">
               <label htmlFor="weight-header">Weight:</label>
               <br />
-              <input type="number" id="weight-header" name="weight" />
-              <br />
             </div>
-
+          </div>
+          <div className="inputs">
+            <input type="email" id="email" name="email" />
+            <br />
+            <input type="text" id="username" name="username" />
+            <br />
+            <input type="password" id="password" name="password" />
+            <br />
+            <input type="password" id="cpassword" name="cpassword" />
+            <br />
+            <input type="date" id="dob-header" name="dob" />
+            <br />
+            <input type="number" id="height-header" name="height" />
+            <br />
+            <input type="number" id="weight-header" name="weight" />
+            <br />
           </div>
         </div>
 
-        <input id="submit" type="submit" value="Register"/>
-
+        
+        
       </form>
     </>
   );
