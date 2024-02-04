@@ -56,7 +56,7 @@ export function Register(){
             </div>
             
             <br />
-            <input type="button" className="mx-auto block bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded" value="Register"/>
+            <input type="button" className="mx-auto text-white block bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded" value="Register"/>
           </div>
         </div>
         <br />
