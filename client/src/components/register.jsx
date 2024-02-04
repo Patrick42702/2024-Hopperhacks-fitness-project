@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useNavigate, Navigate } from "react-router-dom";
 
 export function Register(){
   return (
@@ -56,7 +57,7 @@ export function Register(){
             </div>
             
             <br />
-            <input type="button" className="mx-auto block bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded" value="Register"/>
+            <input type="submit" className="mx-auto block bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded" value="Register"/>
           </div>
         </div>
         <br />
@@ -83,7 +84,11 @@ async function submitRegister(e) {
     weight: form.weight.value.trim()
   }
   console.log(user);
-  await axios.post('http://localhost:3000/user/', user);
+  try{
+    await axios.post('http://localhost:3000/user/', user);
+  } catch (err){
+    alert("Email or username is already taken.");
+    return;
+  }
   console.log("all done!");
-  //await axios.post('/user', user);
 }

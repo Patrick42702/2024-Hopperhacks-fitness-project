@@ -5,6 +5,8 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
+const jwt = require('jsonwebtoken');
+
 // Get all users
 userRouter.get("/", async (req, res) => {
     try {
@@ -27,8 +29,8 @@ userRouter.post("/", async (req, res) => {
     console.log(req.body);
     try {
         const hash = await new Promise((resolve, reject) => {bcrypt.hash(req.body.password, saltRounds, function(err, hash) {
-                if (err) reject(err)
-                resolve(hash)
+                if (err) reject(err);
+                resolve(hash);
             });
         });
         let user = new User({
@@ -42,6 +44,23 @@ userRouter.post("/", async (req, res) => {
         //res.status(201).json(newUser);
         console.log(newUser);
         res.send(newUser);
+    } catch (err) {
+        res.status(400).json({ message: err.message })
+    }
+})
+
+// Login user
+userRouter.post("/login/", async (req, res) => {
+    console.log("login request");
+    console.log(req.body);
+    const user = await User.findOne({email: req.body.email});
+    try {
+        const valid = await new Promise((resolve, reject) => {bcrypt.compare(req.body.password, user.password, function (err, result) {
+                if(err) reject(err);
+                resolve(result);
+            });
+        });
+        console.log(valid);
     } catch (err) {
         res.status(400).json({ message: err.message })
     }
