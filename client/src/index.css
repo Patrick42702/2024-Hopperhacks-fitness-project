@@ -13,7 +13,6 @@ body {
 }
 
 .registration-box {
-  background: #ccfbf1;
   width: 250px;
   height: 350px;
   border-radius: 10px;
@@ -23,10 +22,6 @@ body {
 
 .fields {
   text-align: center;
-}
-
-.submit {
-    text-align: center;
 }
 
 .title {

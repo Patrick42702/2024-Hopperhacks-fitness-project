@@ -4,8 +4,8 @@ export function Register(){
   return (
     <>
       <form target='_self' onSubmit={(e) => submitRegister(e)} action="submit">
-        <div className="registration-box">
-          <h2 className="title">Registration</h2>
+        <div className="title">Registration</div>
+        <div className="registration-box bg-blue-500">
           <div className="fields">
             <div id="email">
               <label id="email-header">Email:</label>
@@ -17,7 +17,7 @@ export function Register(){
             <div id="username">
               <label id="username-header">Username:</label>
               <br />
-              <input type="text" id="username" name="username" />
+              <input type="text" className="username" name="username" />
               <br />
             </div>
 
@@ -29,16 +29,16 @@ export function Register(){
             </div>
 
             <div id="cpassword">
-              <label id="cpassword-header">Confirm Passsword:</label>
+              <label id="cpassword-header">Confirm Password:</label>
               <br />
               <input type="password" id="cpassword" name="cpassword" />
               <br />
             </div>
 
             <div id="dob">
-              <label for="dob-header">Date of Birth:</label>
+              <label htmlFor="dob-header">Date of Birth:</label>
               <br />
-              <input type="date" id="dob-header" name="dob" />
+              <input type="date" className="dob-header" name="dob" />
               <br />
             </div>
 
@@ -58,8 +58,8 @@ export function Register(){
 
           </div>
         </div>
-
-        <div className="submit">Register</div>
+        <br />
+        <input type="button" className="mx-auto block bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded" value="Register"/>
         
       </form>
     </>
