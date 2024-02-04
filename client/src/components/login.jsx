@@ -24,6 +24,8 @@ export function Login() {
               <br />
               <input type="password" className="input-field"/>  
             </div>
+            <br />
+            <button type="submit" className="mx-auto block bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded">Sign In</button>
             <div>
               <br />
               <a href="" onClick={handleClick}>Sign up if you haven't already</a>
