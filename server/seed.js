@@ -43,7 +43,7 @@ const populate = async (jsonData) => {
         "password": "hello there",
         "height": 73,
         "weight": 160,
-
+        "email": "lol@gmail.com"
     });
 
     await user.save();
