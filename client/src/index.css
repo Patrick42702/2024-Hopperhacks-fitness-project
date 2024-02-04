@@ -13,6 +13,23 @@ body {
   min-height: 100vh;
 }
 
+.registration-box {
+    background-color: rgb(4, 155, 115);
+    width: 250px;
+    height: 350px;
+    border-radius: 25px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fields {
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+}
 button{
   background-color: #0d9488;
   color: #ccfbf1;
