@@ -1,12 +1,14 @@
 const fs = require('fs');
+const axios = require('axios')
 let mongoose = require('mongoose');
-let LiftWorkout = require('./models/LiftWorkout')
+let LiftWorkout = require('./models/LiftWorkout');
+let User = require('./models/User');
 require('dotenv').config();
+
+axios.default.withCredentials = true;
 
 // Replace 'your_file_path.json' with the actual path to your JSON file
 const jsonFilePath = './workouts.json';
-
-let liftWorkouts = [];
 
 // Read the JSON file
 fs.readFile(jsonFilePath, 'utf8', (err, data) => {
@@ -34,14 +36,28 @@ fs.readFile(jsonFilePath, 'utf8', (err, data) => {
 });
 
 
-const populate = (jsonData) => {
-    let n = 0
+const populate = async (jsonData) => {
+
+    let user = new User({
+        "username": "pat the gigachad",
+        "password": "hello there",
+        "height": 73,
+        "weight": 160,
+
+    });
+
+    await user.save();
+
+
     Object.values(jsonData).forEach(async sets => {
-        console.log(++n);
         let lift = new LiftWorkout({
+            "user": user,
             "sets": sets
         });
         await lift.save();
+        await axios.patch(`http://localhost:3000/user/${user._id}`, {
+           "liftWorkouts": lift
+       });
     });
     console.log("done");
 }
