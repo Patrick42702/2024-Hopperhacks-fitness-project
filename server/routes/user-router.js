@@ -52,14 +52,14 @@ userRouter.patch("/:id", getUser, async (req, res) => {
         res.user.height = req.body.height;
     try {
         let updatedUser = await res.user.save();
-        /*
-        if (req.body.sets != null) {
-            updatedSwim = await SwimWorkout.findByIdAndUpdate(
+        
+        if (req.body.liftWorkouts !== null) {
+            updatedUser = await User.findByIdAndUpdate(
                 req.params.id,
-                { $push: {sets: req.body.sets} },
+                { $push: {liftWorkouts: req.body.liftWorkouts}},
                 { new: true, useFindAndModify: false }
             )
-        }*/
+        }
         res.json(updatedUser);
     } catch (err) {
         res.status(400).json({ message: err.message });

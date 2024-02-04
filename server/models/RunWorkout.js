@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const runSchema= new mongoose.Schema({
+    user: {type: [mongoose.Schema.Types.ObjectID], ref: "User"},
     startTime: {type: Date, default: Date.now()},
     endTime: {type: Date, default: Date.now()},
     calories: {type: Number, default: 0},
